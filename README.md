@@ -68,6 +68,3 @@ This mirrors the high-level data flow of Git while keeping the implementation ap
 
 This project is under active development. The README describes the intended direction and will evolve as the implementation grows.
 
-## License
-
-Add a license before distributing or publishing this project.

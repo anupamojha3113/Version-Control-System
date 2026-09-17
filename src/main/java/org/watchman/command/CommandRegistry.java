@@ -17,4 +17,7 @@ public class CommandRegistry {
         handlers.put(commandHandler.name(), commandHandler);
         return this;
     }
+
+    public void execute(CommandContext commandContext, String[] args) {
+    }
 }

@@ -22,7 +22,8 @@ public class WatchmanApplication {
     }
 
     public void run(String[] args) {
-
+        CommandContext commandContext = buildCommandContext();
+        commandRegistry.execute(commandContext, args);
     }
 
     private CommandRegistry buildCommandRegistry() {
@@ -30,8 +31,15 @@ public class WatchmanApplication {
                 .registerHandler(new CloneCommandHandler())
                 .registerHandler(new InitCommandHandler())
                 .registerHandler(new AddCommandHandler())
+                .registerHandler(new CheckoutCommandHandler())
+                .registerHandler(new BranchCommandHandler())
                 .registerHandler(new StatusCommandHandler())
                 .registerHandler(new DiffCommandHandler())
                 .registerHandler(new CommitCommandHandler());
+    }
+
+    private CommandContext buildCommandContext() {
+        Path rootPath = Paths.get("").toAbsolutePath().normalize();
+        return new CommandContext();
     }
 }
